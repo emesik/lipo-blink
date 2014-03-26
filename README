@@ -1,0 +1,23 @@
+lipo-blink
+
+A simple LiPo battery checker, which blinks LEDs when any connected cell's
+voltage drops to the specified threshold.
+
+It has been designed for a multicopter setup, where illumination LEDs stay
+turned on during normal operation and begin to blink once the batteries are
+running low.
+
+The code runs on AVR microcontrollers. Current version is designed for ATTiny85
+with a single 2S battery pack. However, it might be easily changed to monitor
+up to 10 cells on ATTiny26 (or even 11 if you sacrifice the reset pin).
+
+The voltage measurement is being done with voltage dividers. Example
+calculations and circuit schemas are included in the doc/ directory.
+
+Attention!
+
+To get accurate results you should use high-precision resistors. A set of
+voltage dividers built of standard 5% tolerance resistors may give very broad
+range of values for the same voltages.  If you are using such resistors, make
+sure that your threshold is defined high enough to avoid a deep-discharge of
+the cells.
